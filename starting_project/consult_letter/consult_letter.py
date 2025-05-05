@@ -78,7 +78,8 @@ def create_consult_letter(
         messages=[
             {"role": "system", "content": system_msg},
             {"role": "user", "content": user_msg}
-        ]
+        ],
+        temperature=0.7
     )
 
     signature = (
