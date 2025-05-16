@@ -32,7 +32,10 @@ from openai_chat import chat_content
 
 
 def create_consult_letter(
-        user_info: dict, specialty: str, note_content: dict[str, Optional[str]], note_date: str
+    user_info: dict,
+    specialty: str,
+    note_content: dict[str, Optional[str]],
+    note_date: str,
 ) -> str:
     """
     Generate a consult letter based on the provided SOAP note content, specialty, and doctor info.
@@ -47,48 +50,28 @@ def create_consult_letter(
             soap_lines.append(f"{section}: {content.strip()}")
     soap_text = "\n".join(soap_lines)
 
-    # testing the system
-    # response = chat_content(
-    #     messages = [
-    #         {"role": "user", "content": "Here is data for the patient. "
-    #                                     f"Patient Info:\n{soap_text}\n"
-    #                                                                        "does this lady have any allergies? What day was her examination?"}
-    #     ]
-    # )
-
     # Build prompt for AI
     system_msg = (
         f"You are a medical specialist in {specialty}. "
-        "Draft a concise, professional consult letter email addressed to the referring family doctor, "
-        "using the provided SOAP-note details to include diagnosis, key findings, assessment, plan, recommendations. No bullet points. When giving background for patient, make sure to mention details such as dates, allergies, and followup to events such as surgical procedures. Immediately cut your response at best regards, do not write [insert name] similar texts."
+        "Draft a concise, professional consult‐letter email to the referring family doctor. "
+        "Do not begin with any greeting such as “Dear Dr. X.” "
+        "Begin by thanking them for the referral and stating the patient’s name, consultation type, and exam date in one sentence. "
+        "Weave all SOAP‐note details into a smooth narrative (chief complaint, history of present illness, review of systems, social/developmental/pregnancy/nutritional history, current medications, allergies, pertinent negatives, physical exam, assessment, plan). "
+        "Use full sentences and paragraphs—no headings, labels, lists, or bullet points. "
+        "If any usual section (e.g. past surgical history or test results) is missing, briefly note its absence. "
+        "Close with an invitation for questions, then write “Sincerely,” on its own line. "
+        "On the following three lines, _exactly_ include your full name, your specialty and your email address as provided in the referring‐physician details. "
+        "Do not use any placeholders or extraneous text."
     )
-    user_msg = (
-        f"Doctor: {full_name} <{doctor_email}>\n"
-        f"Specialty: {specialty}\n"
-        f"Date of Exam: {note_date}\n"
-        f"Patient Info:\n{soap_text}\n"
 
-
-
-        "Write the consult letter in standard email format. Include every patient information in \"patient data\" that is not none, including allergies and date."
-
-    )
+    user_msg = ()
 
     response = chat_content(
         messages=[
             {"role": "system", "content": system_msg},
-            {"role": "user", "content": user_msg}
+            {"role": "user", "content": user_msg},
         ],
-        temperature=0.7
+        temperature=0.7,
     )
 
-    signature = (
-        f"\n{full_name}\n"
-        f"{specialty}\n"
-        f"{doctor_email}"
-    )
-
-    lines = response.splitlines()
-    response = "\n".join(lines[3:])
-
-    return response + signature
+    return response
