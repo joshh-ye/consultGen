@@ -17,7 +17,9 @@ pip install openai
 ```
 
 ### 2. Insert personal openAI API key in [openai_chat.py](./starting_project/consult_letter/openai_chat.py), or use free deepseek API key
-Deepseek API key gives inconsistent results, recommend the paid token openAI option.
+# Getting free deepseek API key:
+Go to openRouter, find DeepSeek V3 (free). Generate API key.
+Note: Deepseek V3 hallucinate data, recommend the paid token openAI option.
 
 
 ## Input
