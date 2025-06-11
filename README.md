@@ -9,7 +9,7 @@ Clone the repo and run the following commands on your machine:
 ### 1. Activate virtual environment and install Python libraries via
 
 ```bash
-cd starting_project\consult_letter
+cd starting_project
 python -m venv ./venv
 .\venv\Scripts\activate
 pip install -r requirements.txt
