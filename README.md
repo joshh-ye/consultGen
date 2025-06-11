@@ -22,84 +22,8 @@ pip install openai
 
 The input parameters are:
 
-## Patient Name
-**Betty**
+![image](https://github.com/user-attachments/assets/65d50ada-ffe5-448a-8308-a6447fc88362)
 
----
-
-## Chief Complaint
-- Ear pain
-
----
-
-## History of Present Illness
-- Left-sided ear pain  
-- No drainage noted  
-- Intermittent hearing loss reported  
-- Pain worsens with chewing  
-- Inconsistent use of mouthpiece for teeth clenching  
-- Pain relief when lying on contralateral side  
-
----
-
-## Social History
-- Occasional use of Reactive for allergies  
-- Allergy to salt  
-
----
-
-## Review of Systems
-- Intermittent hearing loss  
-- No swallowing issues  
-- No nasal congestion  
-- Allergies present; takes Reactive occasionally  
-
----
-
-## Current Medications
-- Reactive (for allergies)  
-
----
-
-## Allergies
-- Salt  
-
----
-
-## Physical Examination
-- **Ears**  
-  - Right ear canal clear  
-  - Right tympanic membrane intact  
-  - Right ear space aerated  
-  - Left ear canal normal  
-  - Left eardrum normal, no fluid or infection  
-- **Nose & Sinuses**  
-  - Nose patent  
-  - Paranasal sinuses normal  
-- **Oral Cavity**  
-  - Oral cavity clear  
-  - Tonsils absent  
-  - Good dentition  
-  - Pain along pterygoid muscles  
-- **Cardiorespiratory & Neck**  
-  - Heart and lungs clear  
-  - No neck tenderness or lymphadenopathy  
-
----
-
-## Assessment & Plan
-
-**Problem 1: Ear pain**  
-**Differential Diagnosis:**  
-- Temporomandibular joint disorder (likely given jaw pain, history of teeth clenching, and normal ear exam)
-
-**Plan:**  
-1. Order audiogram to assess hearing  
-2. Refer to dentist for TMJ evaluation  
-3. Recommend ibuprofen for pain relief  
-4. Advise a soft-food diet  
-5. Avoid chewing gum, hard candies, hard fruits, ice, and nuts  
-6. Follow up if symptoms persist  
 
 
 
