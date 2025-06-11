@@ -16,9 +16,10 @@ pip install -r requirements.txt
 pip install openai
 ```
 
-### 2. Insert personal API key in [openai_chat.py](./starting_project/consult_letter/openai_chat.py)
+### 2. Insert personal openAI API key in [openai_chat.py](./starting_project/consult_letter/openai_chat.py), or use free deepseek API key
+Deepseek API key gives inconsistent results, recommend the paid token openAI option.
 
-#Eg1
+
 ## Input
 
 The input parameters are in a json file format:
