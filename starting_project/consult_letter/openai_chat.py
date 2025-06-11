@@ -209,15 +209,15 @@ def chat_content(**kwargs):
     """
 
     #Using chatGPT key (comment out if using free deepseek key)
-    client = OpenAI(api_key=OPENAI_API_KEY)
-    response = client.chat.completions.create(model="gpt-4o-2024-08-06", **kwargs)
+    # client = OpenAI(api_key=OPENAI_API_KEY)
+    # response = client.chat.completions.create(model="gpt-4o-2024-08-06", **kwargs)
 
     # using deepseek API key (free)
-    """
+    # """
     client = OpenAI(
-        api_key="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",
+        api_key=OPENAI_API_KEY,
         base_url="https://openrouter.ai/api/v1"
     )
     response = client.chat.completions.create(model="deepseek/deepseek-r1-0528:free", **kwargs)
-    """
+    # """
     return response.choices[0].message.content
