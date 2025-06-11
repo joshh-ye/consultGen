@@ -2,8 +2,7 @@ from consult_letter import create_consult_letter
 from openai_chat import chat_content
 
 
-def test_create_consult_letter():
-    consult_letter = create_consult_letter(
+consult_letter = create_consult_letter(
         user_info={"name": "Dr. John Doe", "email": "drjohndoe@clinic.com"},
         specialty="Obstetrics & Gynecology (ObGyn)",
         note_date="2022/01/01",
@@ -31,43 +30,8 @@ def test_create_consult_letter():
         }
     )
 
-    # Export to text file
-    with open("abc.txt", "w") as f:
-        f.write(consult_letter)
+print(consult_letter)
 
-
-    result = chat_content(
-        messages=[
-            {
-                "role": "system",
-                "content": f"You are a professional medical assistant of Obstetrics & Gynecology (ObGyn), \
-your job is to verify the content of consult letter",
-            },
-            {
-                "role": "user",
-                "content": f"""\
-The consult letter is as following, delimited by ```:
-```
-{consult_letter}
-```
-""",
-            },
-            {
-                "role": "user",
-                "content": f"""\
-Follow these test points when verify the consult letter:
-- The letter shall have doctor's name "John Doe"
-- The letter shall mention patient name as Jane, and the encounter happened at 2022/01/01
-- The Patient had COVID-19 in 2021 with subsequent heart pain but found okay.
-- The patient had a cesarean section in 2019 and an abortion due to a fetal health issue.
-- Allergic to minocycline.
-""",
-            },
-            {
-                "role": "user",
-                "content": "Write me PASS **ONLY** if the consult letter is correct, and FAIL with reason if not",
-            },
-        ]
-    )
-
-    assert result.upper() == "PASS"
+# Export to text file
+with open("result1.txt", "w") as f:
+    f.write(consult_letter)

@@ -207,6 +207,9 @@ def chat_content(**kwargs):
 
         timeout: Override the client-level default timeout for this request, in seconds
     """
-    client = OpenAI(api_key=OPENAI_API_KEY)
+    # client = OpenAI(api_key=OPENAI_API_KEY)
+    
+    # using deepseek API key
+    client = OpenAI(api_key=OPENAI_API_KEY, base_url="https://api.deepseek.com")
     response = client.chat.completions.create(model="gpt-4o-2024-08-06", **kwargs)
     return response.choices[0].message.content
